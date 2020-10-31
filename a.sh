@@ -10,8 +10,8 @@ PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
 #check root
 [ $(id -u) != "0" ] && { echo "错误: 您必须以root用户运行此脚本"; exit 1; }
-rm -rf all
-rm -rf $0
+#rm -rf all
+#rm -rf $0
 #
 # 设置字体颜色函数
 function blue(){
