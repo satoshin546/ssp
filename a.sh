@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-#付费维护脚本，请勿破解修改                                                                                             
+#!/usr/bin/env bash                                                                                         
 #===================================================================#
 #   System Required:  CentOS 7                                      #
 #   Description: Install sspanel for CentOS7                        #
@@ -98,7 +97,7 @@ backend_docking_set(){
         start=$(date "+%s")
         install_tool
         check_docker
-        docker run -d --name=ssrmu -e NODE_ID=$node_id -e API_INTERFACE=modwebapi -e WEBAPI_URL=$web_url -e WEBAPI_TOKEN=$webapi_token --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
+        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=www.jd.hk -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL=$web_url -e WEBAPI_TOKEN=$webapi_token --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
         greenbg "恭喜您，后端节点已搭建成功"
         end=$(date "+%s")
         echo 安装总耗时:$[$end-$start]"秒"           
@@ -119,7 +118,7 @@ backend_docking_set(){
         start=$(date "+%s")
         install_tool
         check_docker
-        docker run -d --name=ssrmu -e NODE_ID=$node_id -e API_INTERFACE=glzjinmod -e MYSQL_HOST=$web_ip -e MYSQL_USER=$db_user -e MYSQL_DB=$db_name -e MYSQL_PASS=$user_pwd --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
+        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=www.jd.hk -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=glzjinmod -e MYSQL_HOST=$web_ip -e MYSQL_USER=$db_user -e MYSQL_DB=$db_name -e MYSQL_PASS=$user_pwd --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
         greenbg "恭喜您，后端节点已搭建成功"
         end=$(date "+%s")
         echo 安装总耗时:$[$end-$start]"秒"           
@@ -151,7 +150,7 @@ backend_docking_netflix(){
         start=$(date "+%s")
         install_tool
         check_docker
-        docker run -d --name=ssrmu -e NODE_ID=$node_id -e API_INTERFACE=modwebapi -e WEBAPI_URL=$web_url -e WEBAPI_TOKEN=$webapi_token -e DNS_1="$dnsip" -e DNS_2="" --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
+        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=www.jd.hk -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL=$web_url -e WEBAPI_TOKEN=$webapi_token -e DNS_1="$dnsip" -e DNS_2="" --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
         greenbg "恭喜您，后端节点已搭建成功"
         end=$(date "+%s")
         echo 安装总耗时:$[$end-$start]"秒"           
@@ -175,7 +174,7 @@ backend_docking_netflix(){
         start=$(date "+%s")
         install_tool
         check_docker
-        docker run -d --name=ssrmu -e NODE_ID=$node_id -e API_INTERFACE=glzjinmod -e MYSQL_HOST=$web_ip -e MYSQL_USER=$db_user -e MYSQL_DB=$db_name -e MYSQL_PASS=$user_pwd -e DNS_1="$dnsip" -e DNS_2="" --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
+        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=www.jd.hk -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=glzjinmod -e MYSQL_HOST=$web_ip -e MYSQL_USER=$db_user -e MYSQL_DB=$db_name -e MYSQL_PASS=$user_pwd -e DNS_1="$dnsip" -e DNS_2="" --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
         greenbg "恭喜您，后端节点已搭建成功"
         end=$(date "+%s")
         echo 安装总耗时:$[$end-$start]"秒"           
@@ -186,27 +185,15 @@ backend_docking_netflix(){
 #开始菜单
 start_menu(){
     clear
-    greenbg "==============================================================="
-    greenbg "程序：sspanel后端对接【破解付费授权版】 v1.3                           "
-    greenbg "系统：Centos7.x、Ubuntu、Debian等                              "
-    #greenbg "脚本作者：Azure  联系QQ：2894049053 TG:@Latte_Coffe            "
-    #greenbg "项目来源：Nimaqu Github:Anankke/SSPanel-Uim                    "
-    #greenbg "TG群：https://t.me/baiyueGroup                                 "
-    #greenbg "主题：专注分享优质web资源                                          "
-    #greenbg "更新摘要：新增DNS流媒体解锁。计划新增状态检测、使脚本更智能            "
-    greenbg "==============================================================="
-    echo
-    green "Netflix解锁设置，示例：47.240.68.180 #【如果没有，可以去TVCAT官网解锁，月费低质3元一个ip】"
-    #green "TVCAT官网地址：https://my.tvcat.net/aff.php?aff=47   购买时输入优惠码:TVCAT"    
     echo
     white "-------------程序安装（二选一）-------------"
     green "1.SSPANEL后端对接（默认：支持SS\SSR）"
     green "2.SSPANEL后端安装（Netflix等流媒体解锁版）"
     yellow "以上模式支持普通端口和单端口多用户，也就是1个IP对应1个节点"
-    white "------单端口多用户（新功能，不懂勿动）-------"
-    yellow "此处适合一个ip对应多个节点或对接到不同机场"
-    green "3.SSPANEL后端对接（默认：支持SS\SSR）"
-    green "4.SSPANEL后端安装（Netflix等流媒体解锁版）"
+    #white "------单端口多用户（新功能，不懂勿动）-------"
+    #yellow "此处适合一个ip对应多个节点或对接到不同机场"
+    #green "3.SSPANEL后端对接（默认：支持SS\SSR）"
+    #green "4.SSPANEL后端安装（Netflix等流媒体解锁版）"
     white "-------------杂项管理（此处3、4选项不适用）-------------"
     white "5.查看日志（故障查看、问题解决）"
     white "6.重启节点"
