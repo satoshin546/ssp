@@ -97,7 +97,7 @@ backend_docking_set(){
         start=$(date "+%s")
         install_tool
         check_docker
-        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=www.jd.hk -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL=$web_url -e WEBAPI_TOKEN=$webapi_token --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
+        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=s553330s -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL=$web_url -e WEBAPI_TOKEN=$webapi_token --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
         greenbg "恭喜您，后端节点已搭建成功"
         end=$(date "+%s")
         echo 安装总耗时:$[$end-$start]"秒"           
@@ -118,7 +118,7 @@ backend_docking_set(){
         start=$(date "+%s")
         install_tool
         check_docker
-        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=www.jd.hk -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=glzjinmod -e MYSQL_HOST=$web_ip -e MYSQL_USER=$db_user -e MYSQL_DB=$db_name -e MYSQL_PASS=$user_pwd --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
+        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=s553330s -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=glzjinmod -e MYSQL_HOST=$web_ip -e MYSQL_USER=$db_user -e MYSQL_DB=$db_name -e MYSQL_PASS=$user_pwd --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
         greenbg "恭喜您，后端节点已搭建成功"
         end=$(date "+%s")
         echo 安装总耗时:$[$end-$start]"秒"           
@@ -150,7 +150,7 @@ backend_docking_netflix(){
         start=$(date "+%s")
         install_tool
         check_docker
-        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=www.jd.hk -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL=$web_url -e WEBAPI_TOKEN=$webapi_token -e DNS_1="$dnsip" -e DNS_2="" --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
+        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=s553330s -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=modwebapi -e WEBAPI_URL=$web_url -e WEBAPI_TOKEN=$webapi_token -e DNS_1="$dnsip" -e DNS_2="" --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
         greenbg "恭喜您，后端节点已搭建成功"
         end=$(date "+%s")
         echo 安装总耗时:$[$end-$start]"秒"           
@@ -174,7 +174,7 @@ backend_docking_netflix(){
         start=$(date "+%s")
         install_tool
         check_docker
-        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=www.jd.hk -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=glzjinmod -e MYSQL_HOST=$web_ip -e MYSQL_USER=$db_user -e MYSQL_DB=$db_name -e MYSQL_PASS=$user_pwd -e DNS_1="$dnsip" -e DNS_2="" --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
+        docker run -d --name=ssrmu -e NODE_ID=$node_id -e MU_SUFFIX=s553330s -e MU_REGEX=%5m%id.%suffix -e API_INTERFACE=glzjinmod -e MYSQL_HOST=$web_ip -e MYSQL_USER=$db_user -e MYSQL_DB=$db_name -e MYSQL_PASS=$user_pwd -e DNS_1="$dnsip" -e DNS_2="" --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always baiyuetribe/sspanel:ssr
         greenbg "恭喜您，后端节点已搭建成功"
         end=$(date "+%s")
         echo 安装总耗时:$[$end-$start]"秒"           
